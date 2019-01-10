@@ -11,6 +11,7 @@ public class Main_Character : MonoBehaviour
     [SerializeField] // this prevents other scripts from changing the speed of the main character
     private float movementSpeed;
 
+    private bool shooting;
     private bool facingLeft;
 
     void Start()
@@ -20,17 +21,51 @@ public class Main_Character : MonoBehaviour
         myAnimator = GetComponent<Animator>(); //this references the animator of the main character
     }
 
+    void Update()
+
+    {
+        HandleInput();
+
+    }
+
     void FixedUpdate() //keeps the game fps on the same level for all PC's
     {
         float horizontal = Input.GetAxis("Horizontal");  //this function gives the player control over the main character on the x axis 
+
         HandleMovement(horizontal);
 
         Flip(horizontal);
+
+        HandleShooting();
+
+        ResetValues();
+
     }
     private void HandleMovement(float horizontal) // this function handles all of the movement for the main character in the game
     {
-        myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //this function is used  to apply force to the rigidbody of the main character, moving him across horizontal axis
+        if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
+        {
+            myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //this function is used  to apply force to the rigidbody of the main character, moving him across horizontal axis
+        }
+
+       
         myAnimator.SetFloat("Speed", Mathf.Abs(horizontal)); //in this way,by using the mathf.abs i restrict the horizontal function from returning a negative  value
+    }
+    private void HandleShooting()
+    {
+        if(shooting && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
+        {
+            myAnimator.SetTrigger("Scream");
+            myRigidbody.velocity = Vector2.zero;
+        }
+    }
+
+    private void HandleInput()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            shooting = true;
+        }
     }
     private void Flip(float horizontal) // this function helps to flip the facing position of the character
     {
@@ -42,5 +77,9 @@ public class Main_Character : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+    }
+    private void ResetValues () // this function resets all values of every function after it has been executed
+    {
+        shooting = false;
     }
 }
