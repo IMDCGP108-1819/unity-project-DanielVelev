@@ -6,7 +6,7 @@ public class Main_Character : MonoBehaviour
 {
     private Rigidbody2D myRigidbody;
 
-    private Animator myAnimator; 
+    private Animator myAnimator;
 
     [SerializeField] // this prevents other scripts from changing the speed of the main character
     private float movementSpeed;
@@ -14,6 +14,21 @@ public class Main_Character : MonoBehaviour
     private bool shooting;
     private bool facingLeft;
 
+    [SerializeField]
+    private Transform[] groundPointChecks;
+
+    [SerializeField]
+    private float groundRadius;
+
+    [SerializeField]
+    private LayerMask whatIsGround;
+
+    private bool isGrounded;
+
+    private bool jump;
+
+    [SerializeField]
+    private float jumpForce;
     void Start()
     {
         facingLeft = true;
@@ -32,28 +47,41 @@ public class Main_Character : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");  //this function gives the player control over the main character on the x axis 
 
+        isGrounded = IsGrounded();
+
         HandleMovement(horizontal);
 
         Flip(horizontal);
 
         HandleShooting();
 
+        HandleLayers();
+
         ResetValues();
 
     }
     private void HandleMovement(float horizontal) // this function handles all of the movement for the main character in the game
     {
+        if(myRigidbody.velocity.y < 0)
+        {
+            myAnimator.SetBool("Land", true);
+        }
         if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
         {
             myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //this function is used  to apply force to the rigidbody of the main character, moving him across horizontal axis
         }
+        if(isGrounded && jump) // in this way it is checked if the main character is on the ground or not
+        {
+            isGrounded = false;
+            myRigidbody.AddForce(new Vector2(0, jumpForce));
+            myAnimator.SetTrigger("Jump");
+        }
 
-       
         myAnimator.SetFloat("Speed", Mathf.Abs(horizontal)); //in this way,by using the mathf.abs i restrict the horizontal function from returning a negative  value
     }
     private void HandleShooting()
     {
-        if(shooting && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
+        if (shooting && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
         {
             myAnimator.SetTrigger("Scream");
             myRigidbody.velocity = Vector2.zero;
@@ -62,9 +90,13 @@ public class Main_Character : MonoBehaviour
 
     private void HandleInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             shooting = true;
+        }
+        if (Input.GetKeyDown(KeyCode. W))
+        {
+            jump = true;
         }
     }
     private void Flip(float horizontal) // this function helps to flip the facing position of the character
@@ -78,8 +110,43 @@ public class Main_Character : MonoBehaviour
             transform.localScale = theScale;
         }
     }
-    private void ResetValues () // this function resets all values of every function after it has been executed
+    private void ResetValues() // this function resets all values of every function after it has been executed
     {
         shooting = false;
+        jump = false;
+
+    }
+    private bool IsGrounded()
+    {
+        if (myRigidbody.velocity.y <= 0)
+        {
+            foreach (Transform point in groundPointChecks)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, whatIsGround);
+
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject != gameObject)
+                    {
+                        myAnimator.ResetTrigger("Jump");
+                        myAnimator.SetBool("Land", false);
+                        return true;
+                    }
+                }
+            }          
+        }
+        return false;
+    }
+    private void HandleLayers()
+    {
+        if (isGrounded)
+        {
+            myAnimator.SetLayerWeight(1, 0);
+        }
+        else
+        {
+            myAnimator.SetLayerWeight(1, 1);
+        }
     }
 }
+
