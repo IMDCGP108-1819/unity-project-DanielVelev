@@ -5,6 +5,9 @@ using UnityEngine;
 public class Main_Character : MonoBehaviour
 {
     private Rigidbody2D myRigidbody;
+
+    private Animator myAnimator; 
+
     [SerializeField] // this prevents other scripts from changing the speed of the main character
     private float movementSpeed;
 
@@ -14,6 +17,7 @@ public class Main_Character : MonoBehaviour
     {
         facingLeft = true;
         myRigidbody = GetComponent<Rigidbody2D>(); // this is the reference to the main character's rigidbody
+        myAnimator = GetComponent<Animator>(); //this references the animator of the main character
     }
 
     void FixedUpdate() //keeps the game fps on the same level for all PC's
@@ -26,6 +30,7 @@ public class Main_Character : MonoBehaviour
     private void HandleMovement(float horizontal) // this function handles all of the movement for the main character in the game
     {
         myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //this function is used  to apply force to the rigidbody of the main character, moving him across horizontal axis
+        myAnimator.SetFloat("Speed", Mathf.Abs(horizontal)); //in this way,by using the mathf.abs i restrict the horizontal function from returning a negative  value
     }
     private void Flip(float horizontal) // this function helps to flip the facing position of the character
     {
