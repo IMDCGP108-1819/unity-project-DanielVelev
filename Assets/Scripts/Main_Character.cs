@@ -10,7 +10,7 @@ public class Main_Character : MonoBehaviour
     
 
     private bool shooting;
-    private bool facingLeft;
+    private bool facingRight;
     private bool isGrounded;
     private bool jump;
 
@@ -32,7 +32,7 @@ public class Main_Character : MonoBehaviour
 
     void Start()
     {
-        facingLeft = true;
+        facingRight = true;
         myRigidbody = GetComponent<Rigidbody2D>(); // this is the reference to the main character's rigidbody
         myAnimator = GetComponent<Animator>(); //this references the animator of the main character
     }
@@ -102,13 +102,11 @@ public class Main_Character : MonoBehaviour
     }
     private void Flip(float horizontal) // this function helps to flip the facing position of the character
     {
-        if (horizontal < 0 && !facingLeft || horizontal > 0 && facingLeft)
+        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
         {
-            facingLeft = !facingLeft;
+            facingRight = !facingRight;
 
-            Vector3 theScale = transform.localScale; // this code line references the local scale of the main character in unity, so that he can be flipped 
-            theScale.x *= -1;
-            transform.localScale = theScale;
+            transform.Rotate(0f, 180f, 0f);     
         }
     }
     private void ResetValues() // this function resets all values of every function after it has been executed
