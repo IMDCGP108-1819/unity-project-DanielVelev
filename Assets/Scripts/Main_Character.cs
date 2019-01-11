@@ -5,17 +5,18 @@ using UnityEngine;
 public class Main_Character : MonoBehaviour
 {
     private Rigidbody2D myRigidbody;
-
     private Animator myAnimator;
 
-    [SerializeField] // this prevents other scripts from changing the speed of the main character
-    private float movementSpeed;
+    
 
     private bool shooting;
     private bool facingLeft;
+    private bool isGrounded;
+    private bool jump;
 
-    [SerializeField]
-    private Transform[] groundPointChecks;
+
+    [SerializeField] // this prevents other scripts from changing the speed of the main character
+    private float movementSpeed;
 
     [SerializeField]
     private float groundRadius;
@@ -23,12 +24,12 @@ public class Main_Character : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround;
 
-    private bool isGrounded;
-
-    private bool jump;
+    [SerializeField]
+    private Transform[] groundPointChecks;
 
     [SerializeField]
     private float jumpForce;
+
     void Start()
     {
         facingLeft = true;
@@ -81,7 +82,7 @@ public class Main_Character : MonoBehaviour
     }
     private void HandleShooting()
     {
-        if (shooting && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
+        if (shooting && isGrounded && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
         {
             myAnimator.SetTrigger("Scream");
             myRigidbody.velocity = Vector2.zero;
