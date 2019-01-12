@@ -80,7 +80,7 @@ public class Main_Character : MonoBehaviour
 
         myAnimator.SetFloat("Speed", Mathf.Abs(horizontal)); //in this way,by using the mathf.abs i restrict the horizontal function from returning a negative  value
     }
-    private void HandleShooting()
+    private void HandleShooting()// this function prevents the main character from sliding on the ground while shooting
     {
         if (shooting && isGrounded && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Scream_Shooting"))
         {
@@ -95,7 +95,7 @@ public class Main_Character : MonoBehaviour
         {
             shooting = true;
         }
-        if (Input.GetKeyDown(KeyCode. W))
+        if (Input.GetKeyDown(KeyCode. W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             jump = true;
         }
@@ -115,7 +115,7 @@ public class Main_Character : MonoBehaviour
         jump = false;
 
     }
-    private bool IsGrounded()
+    private bool IsGrounded() // this function will prevent the main character from jumping in the air 
     {
         if (myRigidbody.velocity.y <= 0)
         {
@@ -128,7 +128,7 @@ public class Main_Character : MonoBehaviour
                     if (colliders[i].gameObject != gameObject)
                     {
                         myAnimator.ResetTrigger("Jump");
-                        myAnimator.SetBool("Land", false);
+                        myAnimator.SetBool("Land", false); 
                         return true;
                     }
                 }
@@ -136,7 +136,7 @@ public class Main_Character : MonoBehaviour
         }
         return false;
     }
-    private void HandleLayers()
+    private void HandleLayers() //this function prevents the jump animation of the main character from executing completely before colliding with any ground
     {
         if (isGrounded)
         {
