@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public float enemySpeed = 4f;
+    public float enemySpeed = 1f;
     Transform leftWayPoint, rightWayPoint;
     private int health = 100;
     Vector3 localScale;
@@ -38,16 +38,18 @@ public class Enemy : MonoBehaviour
     
     void Update()// here lies a function that controlls the movement of the enemy
     {
-        if (transform.position.x > rightWayPoint.position.x)
-            movingRight = false;
         if (transform.position.x < leftWayPoint.position.x)
             movingRight = true;
+        if (transform.position.x > rightWayPoint.position.x)
+            movingRight = false;
+        
 
         if (movingRight)
         {
             moveRight();
         }
-        else{
+        else
+        {
             moveLeft();
         }
     }
@@ -55,15 +57,15 @@ public class Enemy : MonoBehaviour
     void moveRight()
     {
         movingRight = true;
-        localScale.x = 1;
+        localScale.x = 4;
         transform.localScale = localScale;
-        rigBody.velocity = new Vector2(localScale.x*enemySpeed, rigBody.velocity.y);
+        rigBody.velocity = new Vector2(localScale.x * enemySpeed, rigBody.velocity.y);
 
     }
     void moveLeft()
     {
         movingRight = false;
-        localScale.x = -1;
+        localScale.x = -4;
         transform.localScale = localScale;
         rigBody.velocity = new Vector2(localScale.x * enemySpeed, rigBody.velocity.y);
 
