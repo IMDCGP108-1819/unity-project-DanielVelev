@@ -7,7 +7,7 @@ public class EnemySpawningPointScript : MonoBehaviour
     public GameObject enemy;
     float randomSpawnPoint;
     Vector2 spawningPointArea;
-    private float spawnSpeed = 1.5f;
+    private float spawnSpeed = 2f;
     float nextSpawn = 0.0f;
     void Start()
     {

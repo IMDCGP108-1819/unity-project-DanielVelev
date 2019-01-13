@@ -252,8 +252,8 @@ GameObject:
   - component: {fileID: 206446594}
   - component: {fileID: 206446593}
   - component: {fileID: 206446596}
-  - component: {fileID: 206446597}
   - component: {fileID: 206446598}
+  - component: {fileID: 206446597}
   - component: {fileID: 206446599}
   m_Layer: 0
   m_Name: Main_Character
@@ -743,7 +743,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.762102
+  orthographic size: 7.5223365
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -767,7 +767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.39, z: -10}
+  m_LocalPosition: {x: -0.12, y: -0.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

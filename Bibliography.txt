@@ -1,5 +1,32 @@
-Main menu
-https://www.youtube.com/watch?v=zc8ac_qUXQY&t=638s
+Alexander Zotov,(2017), How to spawn enemies randomly in Unity 2D game?, Available at: https://www.youtube.com/watch?v=AI8XNNRpTTw (Accessed: 13 Jan 2019)
 
-Character movement + help with animations
-https://www.youtube.com/watch?v=SCRupyidkYA&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO
+Alexander Zotov,(2017), How to make enemies walk from one side of the scene to another in 2D Unity game., Available at: https://www.youtube.com/watch?v=rftxtFFSnps&t=325s (Accessed: 13 Jan 2019)
+
+Alexander Zotov,(2017), Making Unity 2D game. Make enemy collide with player and kill him. Simple UI., Available at:https: https://www.youtube.com/watch?v=JC59tDg4tmo (Accessed: 13 Jan 2019)
+
+Brackeys,(2018), 2D Shooting in Unity (Tutorial), Availabe at: https://www.youtube.com/watch?v=wkKsl1Mfp5M&t=360s (Accessed: 13 Jan, 2019)
+
+Brackeys,(2017), START MENU in Unity, Available at: https://www.youtube.com/watch?v=zc8ac_qUXQY&t=2s (Accessed: 13 Jan, 2019)
+
+inScope Studios, (2015), 1. Unity 5 tutorial for beginners: 2D Platformer - Intro, Available at: https://www.youtube.com/watch?v=SCRupyidkYA&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO (Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 2. Unity 5 tutorial for beginners: 2D Platformer - Idle animation, Available at: https://www.youtube.com/watch?v=I0IVZhHNarg&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO&index=2 (Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 3. Unity 5 tutorial for beginners: 2D Platformer - Movement, Available at: https://www.youtube.com/watch?v=HpJMhNmpIxY&index=3&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 4. Unity 5 tutorial for beginners: 2D Platformer - Flipping the player, Available at: https://www.youtube.com/watch?v=FHQyPgccD4M&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO&index=4(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 5. Unity 5 tutorial for beginners: 2D Platformer - Running animation, Available at: https://www.youtube.com/watch?v=KF0jepqDAtw&index=5&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 6. Unity 5 tutorial for beginners: 2D Platformer - Attack animation, Available at: https://www.youtube.com/watch?v=-gC1u7qHMY4&index=6&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 7. Unity 5 tutorial for beginners: 2D Platformer - Slide animation, Available at: https://www.youtube.com/watch?v=nH8wlww7gAs&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO&index=7(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 8. Unity 5 tutorial for beginners: 2D Platformer - Creating the level, Available at: https://www.youtube.com/watch?v=DifKcTXgyLQ&index=8&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 9. Unity 5 tutorial for beginners: 2D Platformer - Jumping, Available at: https://www.youtube.com/watch?v=05TCTrpGB-4&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO&index=9(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 10. Unity 5 tutorial for beginners: 2D Platformer -Jump animation, Available at:https://www.youtube.com/watch?v=5ghbRb0bBJs&index=10&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO(Accessed: 13 Jan 2019)
+
+inScope Studios, (2015), 12. Unity 5 tutorial for beginners: 2D Platformer -Creating platforms, Available at: https://www.youtube.com/watch?v=hrKx5KdG4oA&list=PLX-uZVK_0K_6VXcSajfFbXDXndb6AdBLO&index=12(Accessed: 13 Jan 2019)
+ 
